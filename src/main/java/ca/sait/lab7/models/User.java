@@ -1,20 +1,35 @@
 package ca.sait.lab7.models;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
 /**
  * Represents a User
  * @author Andy Diep
  */
+@Entity
+@Table (name = "user")
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"), 
+    @NamedQuery(name = "User.softDelete", query = "UPDATE User SET active = 0 WHERE email = :email"),
+})
 public class User implements Serializable {
-    
+    @Id
+    @Basic(optional = false)
+    @Column
     private String email;
+    @Column
     private boolean active;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column
     private String password;
-    private Role role;
     
+    @ManyToOne(targetEntity = Role.class)
+    @JoinColumn(name="role", referencedColumnName = "role_id")
+    private Role role;
     
     public User() {
     

@@ -12,9 +12,4 @@ public class RoleService {
         List<Role> roles = this.roleDB.getAll();
         return roles;
     }
-
-    public int getRoleId(String roleName) throws Exception {
-        int id = this.roleDB.getRoleID(roleName);
-        return id;
-    }
 }
