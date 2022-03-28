@@ -17,30 +17,35 @@
             <div class="row">
                 <div class="col">
                     <h1>Andy's User Management System</h1>
-
-                    <!--Add Users-->
+                    <h2>Add User</h2>
                     <form id="addUser" action="user" method="post">
-                        
-                        <input type="hidden" name="action" value="addUser">
 
+                        <input type="hidden" name="action" value="addUser">
+                        <label for="email">Email:</label>
                         <input type="email" name="email" placeholder='Add User Email' required><br>
+                        
+                        <label for="firstName">First Name:</label>
                         <input type="text" name="firstName" placeholder='Add User First Name'required><br>
+                        
+                        <label for="Last Name">Last Name:</label>
                         <input type="text" name="lastName" placeholder='Add User Last Name'required><br>
+                        
+                        <label for="password">Password:</label>
                         <input type="password" name="password" placeholder='Create Password'required><br>
+                        
                         <select name="role"required>
-                            <option value="1" selected>System admin</option>
+                            <option value="1" selected>System administrator</option>
                             <option value="2">Regular user</option>
-                            <option value="3">Company admin</option>            
-                        </select>  <button type="submit">Add</button>
-                        <br>
-                       
+                            <option value="3">Company administrator</option>            
+                        </select>  
+                        <button type="submit">Add</button>
 
                     </form>
-                    </td>
-                    </tr>
-                    </table>
 
-                    </form> 
+                    <br>
+                    <br>
+
+                    <h2>Current Users</h2>
                     <table class="table">
                         <thead>
                             <tr>
@@ -49,6 +54,7 @@
                                 <th>Last Name</th>
                                 <th>Active</th>
                                 <th>Role</th>
+
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -59,15 +65,50 @@
                                     <td>${user.firstName}</td>
                                     <td>${user.lastName}</td>
                                     <td>${user.active ? "Y" : "N"}</td>
+                                    <td>${user.role.getName()}</td>
 
                                     <td>
-                                        <a href="">Edit</a>
-                                        <a href="user?action=delete&email=${user.email.replace("+", "%2B")}">Delete</a>
+                                        <a href="user?action=edit&email=${user.email}"></a>
+                                        <a href="user?action=delete&email=${user.email}">Delete</a>       
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
+                    
+                    <br>
+                    <br>
+                    
+                    <div class="container">
+                <div class="row" > 
+                    <div class="col">
+                    <form id="editUser" action="user" method="post">
+                        <h2>Edit Users</h2>
+                        
+                        <input type="hidden" name="action" value="editUser">
+                        <label for="editEmail">Email:</label> 
+                        <input type="email" name="editEmail" placeholder='User Email'><br>
+                        
+                        <label for="editFirstName">First Name:</label> 
+                        <input type="text" name="editFirstName" placeholder='First Name'><br>
+                        
+                        <label for="editLastName">Last Name:</label> 
+                        <input type="text" name="editLastName" placeholder='Last Name'><br>
+                        
+                        <label for="editPassword">Password:</label> 
+                        <input type="password" name="editPassword" placeholder='password'><br>
+                        
+                        
+                        <select name="editRole" >
+                             <option value="1" selected>System administrator</option>
+                            <option value="2">Regular user</option>
+                            <option value="3">Company administrator</option>            
+                        </select>
+                        <button type="submit">Save</button>
+                        
+                    </form>
+                </div>
+                    
                 </div>
             </div>
         </div>    
