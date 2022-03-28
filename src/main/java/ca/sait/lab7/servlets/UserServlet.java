@@ -37,8 +37,7 @@ public class UserServlet extends HttpServlet {
             try {
                 String email = request.getParameter("email").replaceAll(" ", "+");
                 service.delete(email);
-                
-                
+
                 response.sendRedirect("user");
                 return;
 
@@ -70,8 +69,6 @@ public class UserServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         UserService service = new UserService();
-        boolean isActive = true;
-        
 
         // Add User 
         if (action != null && action.equals("addUser")) {
@@ -90,25 +87,21 @@ public class UserServlet extends HttpServlet {
             } catch (Exception ex) {
             }
         }
-        
-        if(action != null && action.equals("editUser")){
-            
+
+        if (action != null && action.equals("editUser")) {
+
             String email = request.getParameter("editEmail");
-                String firstName = request.getParameter("editFirstName");
-                String lastName = request.getParameter("editLastName");
-                String password = request.getParameter("editPassword");
-                int roleID = Integer.parseInt(request.getParameter("editRole"));
-                
-                Role role = new Role();
-                role.setId(roleID);
+            String firstName = request.getParameter("editFirstName");
+            String lastName = request.getParameter("editLastName");
+            String password = request.getParameter("editPassword");
+            int roleID = Integer.parseInt(request.getParameter("editRole"));
 
-            try
-            {
+            Role role = new Role();
+            role.setId(roleID);
+
+            try {
                 service.update(email, true, firstName, lastName, password, role);
-            }
-
-            catch(Exception ex)
-            {
+            } catch (Exception ex) {
             }
         }
 

@@ -18,23 +18,25 @@
                 <div class="col">
                     <h1>Andy's User Management System</h1>
                     <h2>Add User</h2>
+                    <p>*Enter new user info to be added</p>
+
                     <form id="addUser" action="user" method="post">
 
                         <input type="hidden" name="action" value="addUser">
                         <label for="email">Email:</label>
                         <input type="email" name="email" placeholder='Add User Email' required><br>
-                        
+
                         <label for="firstName">First Name:</label>
                         <input type="text" name="firstName" placeholder='Add User First Name'required><br>
-                        
+
                         <label for="Last Name">Last Name:</label>
                         <input type="text" name="lastName" placeholder='Add User Last Name'required><br>
-                        
+
                         <label for="password">Password:</label>
                         <input type="password" name="password" placeholder='Create Password'required><br>
-                        
+
                         <select name="role"required>
-                            <option value="1" selected>System administrator</option>
+                            <option value="1">System administrator</option>
                             <option value="2">Regular user</option>
                             <option value="3">Company administrator</option>            
                         </select>  
@@ -46,6 +48,8 @@
                     <br>
 
                     <h2>Current Users</h2>
+                    <p>*These are all of the users</p>
+                    <p>*Delete sets the user status to inactive</p>
                     <table class="table">
                         <thead>
                             <tr>
@@ -75,42 +79,43 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                    
+
                     <br>
                     <br>
-                    
+
                     <div class="container">
-                <div class="row" > 
-                    <div class="col">
-                    <form id="editUser" action="user" method="post">
-                        <h2>Edit Users</h2>
-                        
-                        <input type="hidden" name="action" value="editUser">
-                        <label for="editEmail">Email:</label> 
-                        <input type="email" name="editEmail" placeholder='User Email'><br>
-                        
-                        <label for="editFirstName">First Name:</label> 
-                        <input type="text" name="editFirstName" placeholder='First Name'><br>
-                        
-                        <label for="editLastName">Last Name:</label> 
-                        <input type="text" name="editLastName" placeholder='Last Name'><br>
-                        
-                        <label for="editPassword">Password:</label> 
-                        <input type="password" name="editPassword" placeholder='password'><br>
-                        
-                        
-                        <select name="editRole" >
-                             <option value="1" selected>System administrator</option>
-                            <option value="2">Regular user</option>
-                            <option value="3">Company administrator</option>            
-                        </select>
-                        <button type="submit">Save</button>
-                        
-                    </form>
-                </div>
-                    
-                </div>
-            </div>
-        </div>    
-    </body>
-</html>
+                        <div class="row" > 
+                            <div class="col">
+                                <form id="editUser" action="user" method="post">
+                                    <h2>Edit User</h2>
+                                    <p>*Enter users email for the user info that needs to be edited</p>
+
+                                    <input type="hidden" name="action" value="editUser">
+                                    <label for="editEmail">Email:</label> 
+                                    <input type="email" name="editEmail" placeholder='User Email'><br>
+
+                                    <label for="editFirstName">First Name:</label> 
+                                    <input type="text" name="editFirstName" placeholder='First Name'><br>
+
+                                    <label for="editLastName">Last Name:</label> 
+                                    <input type="text" name="editLastName" placeholder='Last Name'><br>
+
+                                    <label for="editPassword">Password:</label> 
+                                    <input type="password" name="editPassword" placeholder='password'><br>
+
+
+                                    <select name="editRole" >
+                                        <option value="1">System administrator</option>
+                                        <option value="2">Regular user</option>
+                                        <option value="3">Company administrator</option>            
+                                    </select>
+                                    <button type="submit">Save</button>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>    
+                </body>
+                </html>
