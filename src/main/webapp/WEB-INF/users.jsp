@@ -68,7 +68,7 @@
                                     <td>${user.email}</td>
                                     <td>${user.firstName}</td>
                                     <td>${user.lastName}</td>
-                                    <td>${user.active ? "Y" : "N"}</td>
+                                    <td>${user.active ? "Yes" : "No"}</td>
                                     <td>${user.role.getName()}</td>
 
                                     <td>
