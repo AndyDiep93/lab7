@@ -88,6 +88,7 @@ public class UserServlet extends HttpServlet {
             }
         }
 
+        //Edit
         if (action != null && action.equals("editUser")) {
 
             String email = request.getParameter("editEmail");
